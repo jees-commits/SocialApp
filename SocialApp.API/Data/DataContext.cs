@@ -7,5 +7,7 @@ namespace SocialApp.API.Data
     {
         public DataContext(DbContextOptions<DataContext> options):base(options){}
         public DbSet<Value> Values { get; set; } //creating table again
+
+        public DbSet<User> Users{get;set;}
     }
 }

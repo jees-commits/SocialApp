@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SocialApp.API.Data;
@@ -10,6 +11,7 @@ namespace DatingApp.API.Controllers
 {
 
     //http:localhost:5000/api/values
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -30,7 +32,7 @@ namespace DatingApp.API.Controllers
             return Ok(values);
           
         }
-
+        [AllowAnonymous]
         // GET api/values/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
@@ -52,6 +54,7 @@ namespace DatingApp.API.Controllers
         }
 
         // DELETE api/values/5
+        
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
