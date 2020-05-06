@@ -39,7 +39,7 @@ namespace SocialApp.API
                 options.TokenValidationParameters = new TokenValidationParameters{
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.ASCII
-                    .GetBytes(Configuration.GetSection("AppSettings:Token").value)),
+                    .GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
                     ValidateIssuer = false,
                     ValidateAudience = false
 
